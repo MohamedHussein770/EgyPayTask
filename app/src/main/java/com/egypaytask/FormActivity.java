@@ -317,7 +317,18 @@ public class FormActivity
         new DatePickerDialog(FormActivity.this, new DatePickerDialog.OnDateSetListener() {
           @Override
           public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-            et_date.setText(year+"-"+(month+1)+"-"+day);
+            String m,d;
+            month = month+1;
+            if(month<10)
+              m = "0"+month;
+            else
+              m = month+"";
+
+            if(day<10)
+              d= "0"+day;
+            else
+              d= ""+day;
+            et_date.setText(year+"-"+m+"-"+d);
           }
         }, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
       }
